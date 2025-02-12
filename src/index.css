@@ -1,0 +1,23 @@
+@import "tailwindcss/preflight";
+@tailwind utilities;
+
+@import "tailwindcss";
+
+.square {
+  position: relative;
+}
+
+.square[data-hover]:hover::before {
+  content: attr(data-hover);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.5;
+  pointer-events: none;
+  color: var(--hover-color);
+}
+
+.square[data-hover]::before {
+  --hover-color: attr(data-hover-color);
+}
